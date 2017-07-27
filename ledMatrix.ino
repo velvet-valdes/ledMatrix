@@ -29,17 +29,16 @@
     void blinkSingleRedUp(int count, int time);
     void turnOnAllButOne(int count, int time);
     void turnOnAllButTwo(int count, int time);
-
-    
+        
 */
 
-// Include the custome LED matrix library
+// Include the custom LED matrix library
 #include <LedMatrix.h>
 
 // Initialize a matrix object and pass values for its banks
 Matrix matrixMain(2,3,4,5,6,7,8,9);
 
-// Here we are initializing global variables
+// Initialize global variables
 int bankState;  
 int timeHigh;
 int timeMedium;
@@ -52,24 +51,22 @@ void setup() {
 
 }
 
-void loop() {  
-// Here we are going to attempt to use a random function to select states
+void loop() {
   
+// Here we are going to attempt to use a random function to select states  
 int bankState = random(0, 16);
   
-// We are also going to use a random value to adjust the time values
-  
+// We are also going to use a random value to adjust the time values  
 timeHigh = random(10,50);
 timeMedium = random(50,75);
 timeLow = random(75,100);
 timeSlow = random(100,150);
 
-// Lets generate an even random number to pass into functions as the cycle count
-  
-cycleCount = random(1,4);
-  
+// Lets generate an even random number to pass into functions as the cycle count 
+cycleCount = random(1,4);  
   
 switch (bankState) {
+
   case 0:
     // statements
     matrixMain.downHorizontal(cycleCount, timeMedium);
@@ -138,6 +135,6 @@ switch (bankState) {
     // statements
     matrixMain.randomThree(cycleCount, timeLow);
     break;
-}
-     
+    
+	}    
 }
