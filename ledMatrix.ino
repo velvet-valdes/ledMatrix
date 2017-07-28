@@ -38,32 +38,73 @@
 // Initialize a matrix object and pass values for its banks
 Matrix matrixMain(2,3,4,5,6,7,8,9);
 
-// Initialize global variables
-int bankState;  
+// Initialize global variables - note we added the buttons.
+int bankState = 16;	// initializing a value here to start the counter without resetting it throughout the loop 
 int timeHigh;
 int timeMedium;
 int timeLow;
 int timeSlow;
 int cycleCount;
+int button01;   // our left button read pin on the arduino
+int button02;   // our right button read pin on the arduino
+int buttonState01;  
+int buttonState02;  
 
 void setup() {
-// We've already initialized an object that has taken care of the setup for us so far
+  
+  // Lets initialize serial.  Why not?
+	Serial.begin(9600);
+
+	// Set the read pins for the buttons
+	button01 = 12;
+	button02 = 13;
+
+	// Set pinModes
+	pinMode(button01, INPUT);
+	pinMode(button02, INPUT);
 
 }
 
 void loop() {
-  
-// Here we are going to attempt to use a random function to select states  
-int bankState = random(0, 16);
-  
-// We are also going to use a random value to adjust the time values  
-timeHigh = random(10,50);
-timeMedium = random(50,75);
-timeLow = random(75,100);
-timeSlow = random(100,150);
 
-// Lets generate an even random number to pass into functions as the cycle count 
-cycleCount = random(1,4);  
+	// read the state of the pushbuttons
+	int buttonState01 = digitalRead(button01);
+	int buttonState02 = digitalRead(button02);
+
+
+	// check if the pushbutton is pressed.if it is, the buttonState is HIGH: When either button is pressed it will change the state of the counter variable.
+  
+	if (buttonState01 == HIGH) {
+		// increment button state
+		bankState++;
+		Serial.println(bankState);
+		} 
+			
+	else {
+		// print value
+		Serial.println(bankState);
+	}
+
+	if (buttonState02 == HIGH) {
+		// decrement button state
+		bankState--;
+		Serial.println(bankState);
+		} 
+		
+	else {
+		// print value
+		Serial.println(bankState);
+	}
+
+	// We are moving to a fixed time value now that we have buttons
+ 
+	timeHigh = (50);
+	timeMedium = (100);
+	timeLow = (250);
+	timeSlow = (500);
+
+	// Changing the cycle count to a single count now that we have a button selecting states 
+	cycleCount = 1;  
   
 switch (bankState) {
 
