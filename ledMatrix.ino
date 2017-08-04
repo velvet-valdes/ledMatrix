@@ -113,7 +113,7 @@ void loop() {
 	timeMedium = (100);
 	timeLow = (250);
 	timeSlow = (500);
-  timeFloat = valLightMeter;
+  timeFloat = valLightMeter/2;
 
 	// Changing the cycle count to a single count now that we have a button selecting states 
 	cycleCount = 1;  
@@ -122,71 +122,71 @@ switch (bankState) {
 
   case 0:
     // statements
-    matrixMain.downHorizontal(cycleCount, timeFloat);
+    matrixMain.downHorizontal(cycleCount, timeFloat, 1);
     break;
   case 1:
     // statements
-    matrixMain.upHorizontal(cycleCount, timeFloat);
+    matrixMain.upHorizontal(cycleCount, timeFloat, 1);
     break;
   case 2:
     // statements
-    matrixMain.downLeft(cycleCount, timeFloat);
+    matrixMain.downLeft(cycleCount, timeFloat, 1);
     break;
   case 3:
     // statements
-    matrixMain.upRight(cycleCount, timeFloat);
+    matrixMain.upRight(cycleCount, timeFloat, 1);
     break;
   case 4:
     // statements
-    matrixMain.upLeft(cycleCount, timeFloat);
+    matrixMain.upLeft(cycleCount, timeFloat,1);
     break;
   case 5:
     // statements
-    matrixMain.downRight(cycleCount, timeFloat);
+    matrixMain.downRight(cycleCount, timeFloat,1);
     break;
   case 6:
     // statements
-    matrixMain.snakeDown(cycleCount, timeFloat);
+    matrixMain.snakeDown(cycleCount, timeFloat,1);
     break;
   case 7:
     // statements
-    matrixMain.snakeUp(cycleCount, timeFloat);
+    matrixMain.snakeUp(cycleCount, timeFloat,1);
     break;
     case 8:
     // statements
-    matrixMain.blinkRed(cycleCount, timeFloat);
+    matrixMain.blinkRed(cycleCount, timeFloat,1);
     break;
     case 9:
     // statements
-    matrixMain.blinkWhite(cycleCount, timeFloat);
+    matrixMain.blinkWhite(cycleCount, timeFloat,1);
     break;
     case 10:
     // statements
-    matrixMain.rowDown(cycleCount, timeFloat);
+    matrixMain.rowDown(cycleCount, timeFloat,1);
     break;
     case 11:
     // statements
-    matrixMain.rowUp(cycleCount, timeFloat);
+    matrixMain.rowUp(cycleCount, timeFloat,1);
     break;
     case 12:
     // statements
-    matrixMain.blinkSingleWhiteDown(cycleCount, timeFloat);   
+    matrixMain.blinkSingleWhiteDown(cycleCount, timeFloat,1);   
     break; 
     case 13:
     // statements
-    matrixMain.blinkSingleRedDown(cycleCount, timeFloat);    
+    matrixMain.blinkSingleRedDown(cycleCount, timeFloat,1);    
     break;
     case 14:
     // statements
-    matrixMain.blinkSingleWhiteUp(cycleCount, timeFloat);
+    matrixMain.blinkSingleWhiteUp(cycleCount, timeFloat,1);
     break;
     case 15:
     // statements
-    matrixMain.blinkSingleRedUp(cycleCount, timeFloat);
+    matrixMain.blinkSingleRedUp(cycleCount, timeFloat,1);
     break;
     case 16:
     // statements
-    matrixMain.randomThree(cycleCount, timeFloat);
+    matrixMain.randomThree(cycleCount, timeFloat,1);
     break;
     
 	}    
